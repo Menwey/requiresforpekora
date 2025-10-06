@@ -1,17 +1,21 @@
-local noclipActive = false
+-- NoClip отдельно
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+
+local noclip = false
 local noclipConnection
 
 function ToggleNoClip()
-    if noclipActive then
-        noclipActive = false
+    if noclip then
+        noclip = false
         if noclipConnection then
             noclipConnection:Disconnect()
         end
-        print("✅ NoClip: OFF")
     else
-        noclipActive = true
+        noclip = true
         noclipConnection = RunService.Stepped:Connect(function()
-            if not noclipActive then return end
+            if not noclip then return end
             local character = LocalPlayer.Character
             if character then
                 for _, part in pairs(character:GetDescendants()) do
@@ -21,6 +25,7 @@ function ToggleNoClip()
                 end
             end
         end)
-        print("✅ NoClip: ON")
     end
 end
+
+ToggleNoClip()
