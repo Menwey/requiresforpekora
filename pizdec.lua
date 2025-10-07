@@ -32,4 +32,4 @@ mouse.Button1Down:connect(function()
     end
 end)
 
-print("maded by best skidder in earth")
+print("Made by best skidder on the earth ft. 1dev2")
