@@ -7,4 +7,4 @@ end
 for i,v in pairs(workspace.NewerMap:GetDescendants()) do
  tool.TransEvent:FireServer(v,1)
 end
--- made by pozzibros and a4
+-- 
